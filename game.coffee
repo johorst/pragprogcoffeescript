@@ -1,3 +1,4 @@
+GRID_SIZE = 5
 fs = require 'fs'
 owl2 = fs.readFileSync 'OWL2.txt', 'UTF-8'
 wordList = owl2.match /^(\w+)/mg
@@ -13,7 +14,7 @@ totalTiles += count for letter, count of tileCounts
 alphabet = (letter for letter of tileCounts).sort()
 
 randomLetter = ->
-  randomNumber = math.cell Math.random() * totalTiles
+  randomNumber = Math.ceil Math.random() * totalTiles
   x = 1
   for letter in alphabet
     x += titleCounts[letter]
